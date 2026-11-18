@@ -215,7 +215,8 @@ body.lesson-page { background: var(--bg); background-attachment: scroll; overflo
   .crumbs { display: none; }
 }
 @media (max-width: 560px) {
-  .stat-row, .kpis, .grid2 { grid-template-columns: 1fr 1fr; }
+  .stat-row, .kpis { grid-template-columns: 1fr 1fr; }
+  .grid2 {  grid-template-columns: 1fr }
   .welcome { padding: 18px; } .av-big { width: 64px; height: 64px; font-size: 2rem; }
   .trk-row { grid-template-columns: 1fr 50px; } .trk-row > :first-child { grid-column: 1 / -1; }
   .lesson-nav .btn { display: none; }
