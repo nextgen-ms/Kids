@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>لوحتي — NextGen Academy</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-in">
+    <a class="brand" href="index.html"><img src="assets/img/logo-sm.png" alt="NextGen Academy"><span>NextGen Academy</span></a>
+    <button class="burger" id="burger" aria-label="القائمة">☰</button>
+    <nav class="nav-links" id="links">
+      <a href="index.html">الرئيسية</a>
+      <a href="app.html" class="active">لوحتي</a>
+      <a href="parents.html">أولياء الأمور</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container app">
+  <section id="welcome" class="welcome"></section>
+  <section id="continueBox"></section>
+  <div id="tracksHost"></div>
+  <section class="panel">
+    <h2>🏅 شاراتي</h2>
+    <div class="badges" id="badges"></div>
+  </section>
+</main>
+
+<div id="onboard" class="overlay" hidden>
+  <form class="modal" id="onboardForm" style="text-align:right">
+    <div class="center"><img src="assets/img/logo-sm.png" alt="" style="height:64px;margin:0 auto 10px;border-radius:12px"></div>
+    <h2 class="center">أهلاً بك في NextGen Academy! 👋</h2>
+    <p class="muted center">أخبرنا ببعض المعلومات عنك لنجهّز لك رحلة التعلّم.</p>
+    <label class="lbl">اسمك الأول</label>
+    <input class="input" id="obName" required maxlength="20" placeholder="مثال: يوسف">
+    <label class="lbl">عمرك</label>
+    <select class="input" id="obAge" required>
+      <option value="">اختر...</option>
+    </select>
+    <label class="lbl">اختر شخصيتك</label>
+    <div class="avatars" id="obAvatars"></div>
+    <label class="consent" id="obConsentRow" hidden><input type="checkbox" id="obConsent"> أنا ولي الأمر وأوافق على استخدام ابني/ابنتي للمنصة.</label>
+    <p class="muted" style="font-size:.85rem">نخزّن الاسم والعمر على جهازك فقط، ولا توجد أي دردشة أو تواصل مع الغرباء. 🔒</p>
+    <button class="btn btn-primary btn-lg" style="width:100%" type="submit">هيا نبدأ 🚀</button>
+  </form>
+</div>
+<footer class="footer">
+  <div class="container foot-grid">
+    <div>
+      <a class="brand" href="index.html"><img src="assets/img/logo-sm.png" alt="NextGen Academy"><span>NextGen Academy</span></a>
+      <p class="muted" style="margin-top:12px">أكاديمية عربية لتعليم البرمجة للأطفال والمراهقين بالتطبيق العملي.</p>
+      <div class="follow"><div data-social=""></div></div>
+    </div>
+    <div><h4>المنصة</h4><a class="fl" href="app.html">لوحة الطالب</a><a class="fl" href="#tracks">الوحدات</a><a class="fl" href="parents.html">أولياء الأمور</a></div>
+    <div><h4>الوحدات</h4><a class="fl" href="app.html#track-c0">💻 عالم الحاسوب</a><a class="fl" href="app.html#track-logic">🧩 تفكير المبرمج</a><a class="fl" href="app.html#track-langs">🗣️ لغات البرمجة</a><a class="fl" href="app.html#track-advanced">🧠 حل المشكلات</a><a class="fl" href="app.html#track-final">🎓 المشروع الختامي</a></div>
+  </div>
+  <div class="container copy"> NextGen Academy --- Eng : Muhammad Sayed  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>

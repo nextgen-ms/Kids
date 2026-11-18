@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>شهادة إتمام — NextGen Academy</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-in">
+    <a class="brand" href="app.html"><img src="assets/img/logo-sm.png" alt="NextGen Academy"><span>NextGen Academy</span></a>
+    <nav class="nav-links" style="display:flex"><a href="app.html">← لوحتي</a></nav>
+  </div>
+</header>
+<main class="container cert-wrap" id="root"></main>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/store.js"></script>
+<script>
+(function () {
+  const root = document.getElementById('root'), s = NG.state;
+  const t = NG_TRACKS.find((x) => x.id === new URLSearchParams(location.search).get('track'));
+  if (!s.profile || !t) { location.replace('app.html'); return; }
+  const pr = NG.trackProgress(t);
+  if (pr.done < pr.total) {
+    root.innerHTML = '<div class="panel center" style="margin-top:40px"><div class="big-emoji">🔒</div><h2>الشهادة ما زالت مقفولة</h2><p class="muted">أكملت ' + pr.done + ' من ' + pr.total + ' دروس في وحدة ' + t.name + '.</p><a class="btn btn-primary" href="app.html">أكمل الدروس</a></div>';
+    return;
+  }
+  const last = Math.max(...t.lessons.map((l) => s.completed[l.id].at));
+  const date = new Date(last).toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
+  const inst = NG_CONFIG.instructor;
+  root.innerHTML = '<div class="no-print" style="display:flex;gap:10px;justify-content:center;margin-bottom:16px"><button class="btn btn-primary" onclick="print()">🖨️ طباعة / حفظ PDF</button><a class="btn btn-ghost" href="app.html">لوحتي</a></div>' +
+    '<div class="cert" style="--cc:' + t.color + '">' +
+    '<div><img class="lg" src="assets/img/logo.png" alt="NextGen Academy"></div>' +
+    '<div><p style="letter-spacing:.2em;color:#667">NEXTGEN ACADEMY</p><h1>شهادة إتمام مسار ' + t.name + '</h1><p>تشهد أكاديمية NextGen بأن الطالب/ـة</p><div class="nm">' + NG.esc(s.profile.name) + '</div>' +
+    '<p>قد أتمّ/ت بنجاح جميع دروس وحدة <b>' + t.name + '</b> (' + t.ages + ')،</p><p>وحقّق/ت: <b>' + t.outcome + '</b></p></div>' +
+    '<div class="sig"><div>' + date + '<br><small>التاريخ</small></div><div class="seal">🏅</div><div>' + NG.esc(inst.name) + '<br><small>' + NG.esc(inst.title) + '</small></div></div></div>';
+  NG.confetti();
+})();
+</script>
+</body>
+</html>
